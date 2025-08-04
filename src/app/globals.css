@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #3f70c3;
+  --background: #cfddf8;
+  --white: #ffffff;
+  --foreground: #1f2937;
 }
 
 @theme inline {
+  --color-primary: var(--primary);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-white: var(--white);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom utility classes */
+.btn-primary {
+  @apply bg-[#3f70c3] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#2d5aa0] transition-colors duration-200 shadow-md;
+}
+
+.btn-secondary {
+  @apply bg-white text-[#3f70c3] border-2 border-[#3f70c3] px-6 py-3 rounded-lg font-medium hover:bg-[#3f70c3] hover:text-white transition-colors duration-200;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-6 border border-gray-100;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.text-primary {
+  @apply text-[#3f70c3];
+}
+
+.bg-primary {
+  @apply bg-[#3f70c3];
+}
+
+.bg-background {
+  @apply bg-[#cfddf8];
 }
