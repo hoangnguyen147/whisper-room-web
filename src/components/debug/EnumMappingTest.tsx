@@ -35,6 +35,8 @@ export default function EnumMappingTest() {
       const result = await surveyApi.submitSurvey(sampleData);
       setApiTestResult(result);
       console.log('✅ API test result:', result);
+      console.log('🧠 TAI Score:', result.tai_score);
+      console.log('📊 Anxiety Level:', result.anxiety_level);
     } catch (error) {
       console.error('❌ API test error:', error);
       setApiTestResult({ error: error instanceof Error ? error.message : 'Unknown error' });
@@ -167,6 +169,20 @@ export default function EnumMappingTest() {
             {apiTestResult && (
               <div className="mt-4 p-4 bg-gray-50 rounded-lg">
                 <h3 className="font-semibold mb-2">Survey API Test Results:</h3>
+
+                {/* TAI Results Highlight */}
+                {apiTestResult.tai_score !== undefined && (
+                  <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h4 className="font-semibold text-blue-800 mb-2">🧠 TAI Results:</h4>
+                    <div className="text-sm text-blue-700 space-y-1">
+                      <p><strong>TAI Score:</strong> {apiTestResult.tai_score || 'null'}</p>
+                      <p><strong>Anxiety Level:</strong> {apiTestResult.anxiety_level || 'N/A'}</p>
+                      <p><strong>Client ID:</strong> {apiTestResult.client_id}</p>
+                      <p><strong>Survey ID:</strong> {apiTestResult.survey_id}</p>
+                    </div>
+                  </div>
+                )}
+
                 <pre className="bg-white p-2 rounded text-xs overflow-auto max-h-40">
                   {JSON.stringify(apiTestResult, null, 2)}
                 </pre>

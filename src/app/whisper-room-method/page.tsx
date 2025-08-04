@@ -24,11 +24,20 @@ export default function WhisperRoomMethodPage() {
   useEffect(() => {
     // Kiểm tra xem có client_id trong localStorage không
     const storedClientId = localStorage.getItem('whisper_room_client_id');
+    const taiResults = localStorage.getItem('tai_results');
+
     if (!storedClientId) {
       // Nếu không có client_id, chuyển hướng về trang khảo sát
       router.push('/survey');
       return;
     }
+
+    if (!taiResults) {
+      // Nếu không có kết quả TAI, chuyển về trang kết quả
+      router.push('/survey-results');
+      return;
+    }
+
     setClientId(storedClientId);
   }, [router]);
 

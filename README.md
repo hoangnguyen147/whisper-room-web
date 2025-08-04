@@ -113,14 +113,16 @@ src/
 
 1. **Trang chủ** → Giới thiệu và CTA "Bắt đầu khảo sát"
 2. **Khảo sát** → 3 bước: Thông tin cá nhân, Thang đo lo âu, Liên hệ
-3. **Chọn phương thức** → Lựa chọn 1 trong 3 phương thức hỗ trợ
-4. **Đặt lịch** → Chọn slot thời gian và thêm ghi chú
-5. **Xác nhận** → Hiển thị thông tin và hướng dẫn tiếp theo
+3. **Kết quả TAI** → Hiển thị điểm số và mức độ lo âu (20-80 điểm) 🧠
+4. **Chọn phương thức** → Lựa chọn 1 trong 3 phương thức hỗ trợ
+5. **Đặt lịch** → Chọn slot thời gian và thêm ghi chú
+6. **Xác nhận** → Hiển thị thông tin và hướng dẫn tiếp theo
 
 ## 💾 Local Storage
 
 Ứng dụng sử dụng localStorage để lưu trữ:
 - `whisper_room_client_id`: ID client sau khi hoàn thành khảo sát
+- `tai_results`: Kết quả TAI (điểm số và mức độ lo âu)
 - `whisper_room_method`: Phương thức đã chọn
 - `booking_info`: Thông tin đặt lịch
 

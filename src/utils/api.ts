@@ -8,6 +8,9 @@ export interface ApiResponse<T = any> {
   survey_id?: number;
   message?: string;
   count?: number;
+  // TAI (Trait Anxiety Inventory) results
+  tai_score?: number | null;
+  anxiety_level?: string;
   filter?: {
     type?: string;
     start_date?: string;

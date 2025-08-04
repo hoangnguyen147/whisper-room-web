@@ -27,8 +27,19 @@ export default function SurveyPage() {
         // Lưu client_id vào localStorage
         localStorage.setItem('whisper_room_client_id', result.client_id.toString());
 
-        // Chuyển hướng đến trang chọn phương thức
-        router.push('/whisper-room-method');
+        // Lưu kết quả TAI để hiển thị ở trang kết quả
+        const taiResults = {
+          tai_score: result.tai_score,
+          anxiety_level: result.anxiety_level,
+          client_id: result.client_id,
+          survey_id: result.survey_id
+        };
+        localStorage.setItem('tai_results', JSON.stringify(taiResults));
+
+        console.log('✅ TAI Results saved:', taiResults);
+
+        // Chuyển hướng đến trang hiển thị kết quả TAI
+        router.push('/survey-results');
       } else {
         throw new Error(result.error || 'Có lỗi xảy ra khi gửi khảo sát');
       }
