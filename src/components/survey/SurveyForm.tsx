@@ -107,7 +107,8 @@ export default function SurveyForm({ onSubmit, loading = false }: SurveyFormProp
 
       anxietyFields.forEach(field => {
         const value = formData[field as keyof SurveyData];
-        if (!value || value < 1 || value > 4) {
+        const numValue = typeof value === 'string' ? parseInt(value) : value;
+        if (!value || typeof numValue !== 'number' || numValue < 1 || numValue > 4) {
           newErrors[field] = 'Vui lòng chọn mức độ từ 1-4';
         }
       });

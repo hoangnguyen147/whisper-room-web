@@ -8,6 +8,12 @@ export interface ApiResponse<T = any> {
   survey_id?: number;
   message?: string;
   count?: number;
+  filter?: {
+    type?: string;
+    start_date?: string;
+    end_date?: string;
+    date?: string;
+  };
 }
 
 export class ApiError extends Error {
