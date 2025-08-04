@@ -64,20 +64,15 @@ async function apiRequest<T = any>(
 // Survey API
 export const surveyApi = {
   async submitSurvey(surveyData: any): Promise<ApiResponse> {
-    // Import enum mapping function
-    const { convertToApiFormat } = await import('./enumMappings');
-
-    // Convert data to API format
-    const convertedData = convertToApiFormat(surveyData);
+    // Server now accepts text values directly, no enum conversion needed
 
     // Log để debug
-    console.log('🔄 Original data:', surveyData);
-    console.log('🔄 Converted data:', convertedData);
-    console.log('📤 Sending to API:', { data: convertedData });
+    console.log('🔄 Survey data (text values):', surveyData);
+    console.log('📤 Sending to API:', { data: surveyData });
 
     return apiRequest('/api/post-survey', {
       method: 'POST',
-      body: JSON.stringify({ data: convertedData }),
+      body: JSON.stringify({ data: surveyData }),
     });
   },
 };

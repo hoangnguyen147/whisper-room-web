@@ -232,12 +232,13 @@ export default function EnumMappingTest() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
           <div className="p-4 bg-blue-50 rounded-lg">
-            <h3 className="font-semibold text-blue-800 mb-2">Expected Enum Values:</h3>
+            <h3 className="font-semibold text-blue-800 mb-2">✅ Server Now Accepts Text Values:</h3>
             <div className="text-sm text-blue-700 space-y-1">
-              <p><strong>Age:</strong> "20" → "age_20"</p>
-              <p><strong>Academic Year:</strong> "Năm 3" → "year_3"</p>
-              <p><strong>Study Hours:</strong> "1 – 2 giờ" → "from_1_to_2_hours"</p>
-              <p><strong>Exam Prep:</strong> "Vài ngày trước" → "few_days_before"</p>
+              <p><strong>Age:</strong> "20" → "20" (no conversion)</p>
+              <p><strong>Academic Year:</strong> "Năm 3" → "Năm 3" (no conversion)</p>
+              <p><strong>Study Hours:</strong> "1 – 2 giờ" → "1 – 2 giờ" (no conversion)</p>
+              <p><strong>Exam Prep:</strong> "Vài ngày trước" → "Vài ngày trước" (no conversion)</p>
+              <p className="text-green-600 font-medium">✨ Enum mapping no longer needed!</p>
             </div>
           </div>
 

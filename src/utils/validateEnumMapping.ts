@@ -99,10 +99,10 @@ export const validateEnumMapping = () => {
   };
 };
 
-// Sample data để test API call hoàn chỉnh
+// Sample data để test API call hoàn chỉnh (now using text values directly)
 export const createSampleSurveyData = () => {
   return {
-    // Personal info
+    // Personal info - now using display text directly (no enum conversion)
     gender: 'Nam',
     age: '20',
     major_group: 'Khối ngành V: Toán và thống kê, Máy tính và công nghệ thông tin...',
@@ -149,8 +149,9 @@ export const createSampleSurveyData = () => {
   };
 };
 
-// Expected API format sau khi convert
+// Expected API format (now same as input since server accepts text values)
 export const getExpectedApiFormat = () => {
   const sampleData = createSampleSurveyData();
-  return convertToApiFormat(sampleData);
+  // No conversion needed - server now accepts text values directly
+  return sampleData;
 };
